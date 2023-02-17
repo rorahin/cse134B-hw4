@@ -1,8 +1,0 @@
-/* variables can be accessed with var(nameOfVar) */
-:root {
-    --main-color: red;
-}
-
-* {
-    color: var(--main-color);
-}
