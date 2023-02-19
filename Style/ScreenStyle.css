@@ -14,8 +14,10 @@
 /* @import url(https://fonts.googleapis.com/css2?family=Babylonica&family=Noto+Sans+Tagbanwa&family=Open+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap); */
 
 @font-face {
-    font-family: "Bitstream Vera Serif Bold", sans-serif;
-    src: url("https://mdn.github.io/css-examples/web-fonts/VeraSeBd.ttf");
+    /* font-family: "Bitstream Vera Serif Bold", sans-serif; */
+    /* src: url("https://mdn.github.io/css-examples/web-fonts/VeraSeBd.ttf"); */
+    font-family: becky;
+    src: url(/Fonts/becky-tahlia-font/BeckyTahlia-MP6r.ttf);
     font-display: swap;
 }
 
@@ -106,7 +108,7 @@ img:hover {
 }
 
 #name {
-    font-family: cursive;
+    font-family: becky, cursive;
     font-size: 5em;
     text-align: center;
     /* border: 3px solid red; */
