@@ -29,7 +29,7 @@
 } */
 
 body {
-    font-family: 'Times New Roman', Times, serif, "Bitstream Vera Serif Bold", sans-serif;
+    font-family: 'Times New Roman', Times, serif, becky, sans-serif;
     color: rgb(0, 0, 0);
     max-width: 1140px;
     margin: auto;
