@@ -1,5 +1,5 @@
-@import "https://unpkg.com/open-props"; /* used as reference */
-/* variables can be accessed with var(nameOfVar) */
+@import "https://unpkg.com/open-props"; 
+
 :root {
     --main-color: black;
     --default-margin: 10px;
@@ -21,7 +21,7 @@ body {
     margin: auto;
 }
 
-/* Animation */
+
 @keyframes colorchange {
     from { color: blue; }
     to { color: purple; }
@@ -29,14 +29,12 @@ body {
 
 .top-resume {
     display: block;
-    /* Animation */
     animation-name: colorchange;    
     animation-duration: 2s;
     animation-iteration-count: infinite;
 }
 
 .top-resume:hover {
-    /* Transition */
     transition-property: font-size, background-color;
     transition-duration: 5s;
     font-size:x-large;
@@ -58,7 +56,6 @@ h2, .awards, footer {
 }
 
 img {
-    /* images */
     border: var(--default-border) solid teal;
     border-radius: var(--default-borederradius);
     filter: contrast(1);
@@ -75,14 +72,12 @@ img {
 }
 
 img::after {
-    /* image foreground */
     position: absolute;
     background-color: lightgray;
     border: 0.1cm solid black;
     content: "Image could not load";
 }
 
-/* media query */
 @media (height > 600px) {
     img {
       margin: auto;
@@ -97,7 +92,6 @@ img:hover {
     font-family: becky, cursive;
     font-size: 5em;
     text-align: center;
-    /* border: 3px solid red; */
     float:inline-start;
     color: lightslategrey;
 } 
