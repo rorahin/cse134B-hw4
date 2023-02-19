@@ -1,5 +1,5 @@
-/* variables can be accessed with var(nameOfVar) */
 @import "https://unpkg.com/open-props"; /* used as reference */
+/* variables can be accessed with var(nameOfVar) */
 :root {
     --main-color: black;
     --default-margin: 10px;
