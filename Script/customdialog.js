@@ -1,77 +1,48 @@
-// @ts-check
+export function myAlert (s) {
 
-import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify@2.3.2/dist/purify.min.js';
+    let alertDialog = document.createElement('dialog');
 
-let Customdialog = (() => {
-    let dialogMap = new Map();
-    let createDialog = (id, title, message, type) => {
-        let dialog = document.createElement('dialog');
-        dialog.id = id;
-        dialog.style.display = 'none';
+    alertDialog.innerHTML = `<p>${s}</p>
+                        <div style="text-align: center">
+                            <button id="okBtn">Ok</button>
+                        </div>`;
 
-        let titleElem = document.createElement('h1');
-        titleElem.innerHTML = DOMPurify.sanitize(title); // check
-        let messageElem = document.createElement('p');
-        messageElem.innerHTML = DOMPurify.sanitize(message);
+    document.body.appendChild(alertDialog);
 
-        dialog.appendChild(titleElem);
-        dialog.appendChild(messageElem);
-
-        let okButton = document.createElement('button');
-        okButton.innerText = 'OK';
-        let cancelButton = document.createElement('button');
-        cancelButton.innerText = "Cancel";
-
-        okButton.addEventListener('click', () => {
-            dialog.close(type === "prompt" ? "OK" : undefined)
-        })
-        cancelButton.addEventListener('click', () => {
-            dialog.close(undefined);
-        })
-
-        dialog.appendChild(okButton)
-        dialog.appendChild(cancelButton)
-
-        document.body.appendChild(dialog)
-
-        dialogMap.set(id, dialog);
+    alertDialog.querySelector('#okBtn').onclick = function () {
+        alertDialog.close();
     }
 
-    let showDialog = async (id, type) => {
-        let dialog = dialogMap.get(id);
-        if (dialog) {
-            if (type === 'alert') {
-                dialog.querySelector('button:last-child').style.display = 'none';
-            } else if (type === 'confirm') {
+    alertDialog.showModal();
+}
 
-            } else if (type === 'prompt') {
-                dialog.querySelector('p:last-child').innerHTML += '<br><input type="text">';
-            }
+export function myConfirm (s) {
+    let confirmDialog = document.createElement('dialog');
+    confirmDialog.innerHTML = `<p>${s}</p>
+                                <form method="dialog">
+                                    <div>
+                                        <button type="submit" id="cancelBtn" value="">Cancel</button>
+                                        <button type="submit" id="okBtn" value="true">Ok</button>
+                                    </div>
+                                </form>`;
+    document.body.appendChild(confirmDialog);
+    confirmDialog.showModal();
+    return confirmDialog;
+}
 
-            await dialog.showDialog();
-
-            let inputElem = dialog.querySelector('inpuy');
-            let value = inputElem ? inputElem.value : undefined;
-
-            if (inputElem) {
-                inputElem.remove();
-            }
-
-            return dialog.returnValue === 'OK' ? value : undefined;
-        }
-    }
-
-    let closeDialog = (id) => {
-        let dialog = dialogMap.get(id);
-        if (dialog) {
-            dialog.close(undefined);
-        }
-    }
-    return {
-        createDialog,
-        showDialog,
-        closeDialog
-    }
-})
-
-window.addEventListener('DOMContentLoaded', Customdialog)
+export function myPrompt (str, defaultStr) {
+    let promptDialog = document.createElement('dialog');
+    promptDialog.innerHTML = `<form method="dialog">
+                                <div>
+                                <label for="">${str}</label>
+                                </div>
+                                <input type="text" value="${defaultStr}" id="promptResponse" size="60">
+                                <div style="text-align: right">
+                                    <button type="submit" id="cancelBtn" value="">Cancel</button>
+                                    <button type="submit" id="okBtn" value="true">Ok</button>
+                                </div>
+                              </form>`;
+    document.body.appendChild(promptDialog);
+    promptDialog.showModal();
+    return promptDialog;
+}
