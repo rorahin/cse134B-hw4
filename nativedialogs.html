@@ -35,10 +35,44 @@
     <h1>Custom Dialogs</h1>
     <div>
         <form>
-
+            <button id='alertBtn' type='button'>Alert</button>
+            <button id='confirmBtn' type='button'>Confirm</button>
+            <button id='promptBtn' type='button'>Prompt</button>
         </form>
     </div>
+    <div>
+        <output id='dialogOutput'></output>
+    </div>
 
+    <script type='module'>
+        import { myAlert, myConfirm, myPrompt } from './customedialog.js';
+
+        window.addEventListener('DOMContentLoaded', function () {
+
+            function sanitize (strings, ...values) {
+                const dirty = strings.reduce((prev, next, i) => `${prev}${next}${values[i] || ''}`, '');
+                return DOMPurify.sanitize(dirty);
+            }
+
+            document.getElementById('alertBtn').addEventListener('click', function () {
+                let output = document.getElementById('dialogOutput');
+                output.style.visibility = 'hidden';
+                myAlert('Alert pressed!')
+            })
+
+            document.getElementById('confirmBtn').addEventListener('click', function () {
+                let output = document.getElementById('dialogOutput');
+                output.style.visibility = 'hidden';
+
+                let dialog = myConfirm("Do you confirm this?")
+                dialog.addEventListener('close', function () {
+                    // **********************************************************************
+                })
+            })
+
+
+        })
+    </script>
 
 
 
