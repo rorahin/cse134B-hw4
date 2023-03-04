@@ -1,4 +1,5 @@
 // @ts-check
+// import Customdialog from './customdialog.js'
 
 // function loadHandler () {
 //     let element = document.getElementById("Alert");
@@ -72,6 +73,18 @@ function loadHandler () {
         }
     })
 }
+
+// Customdialog()
+//     .then(() => {
+//         console.log('Dialog closed.');
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
+
+
+
+
 
 // oadHandler();
 window.addEventListener('DOMContentLoaded', loadHandler)
