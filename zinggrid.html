@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZingGrid - Hello Web Component</title>
+    <script src='https://cdn.zinggrid.com/zinggrid.min.js'></script>
+</head>
+
+<body>
+    <zing-grid caption='Some Random Table' id='zg1' sort search // editor pager page-size='3' page-size-option='2,3,6'
+        layout='row' viewport-stop>
+    </zing-grid>
+    <script type='module'>
+        window.addEventListener("DOMContentLoaded", init);
+        function init () {
+            let el = document.getElementById('zg1');
+            el.setData([
+                {
+                    "dialSix": 7,
+                    "dialThree": 3,
+                    "fluidDesc": "Aqua-Drill (WBM)",
+
+                }
+            ])
+        }
+    </script>
+
+</body>
+
+</html>
