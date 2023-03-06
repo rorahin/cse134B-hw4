@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog CRUD</title>
+    <style>
+        form-field {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Blog</h1>
+
+    <div>
+        <output id='blogPosts'></output>
+        <button id='addPostBtn'>ADD Post</button>
+    </div>
+
+    <dialog id='addPostDialog'>
+        <div>
+            <form id='addPostForm'>
+                <input type='hidden' name='postId' id='postId' value=''>
+                <form-field>
+                    <label for='postTitle'>Post Title:</label>
+                    <input type='text' required placeholder='Post Title' id='postTitle' name='postTitle'>
+                </form-field>
+                <form-field>
+                    <label for='postDate'>Post Date</label>
+                    <input type='date' required id='postDate' name='postDate'>
+                </form-field>
+                <form-field>
+                    <label for='postSummary'>Post Summary:</label>
+                    <textarea required placeholder='Post Summary' id='postSummary' name='postSummary'></textarea>
+                </form-field>
+                <div>
+                    <input type='button' value='Cancel' id='cancelPostBtn'>
+                    <input type='button' value='Save' id='savePostBtn'>
+                </div>
+
+
+            </form>
+        </div>
+    </dialog>
+
+    <!-- ass file  src=./blog.js -->
+    <script type='module' src='./Script/blog.js'>
+        import * as posts from "./Script/blog.js";
+
+        window.editPost = posts.edidPost;
+        window.deletePost = posts.deletePost;
+
+        window.addEventListener("DOMContentLoaded", function () {
+            posts.setUp()
+        })
+    </script>
+
+</body>
+
+</html>

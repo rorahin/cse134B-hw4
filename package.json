@@ -1,0 +1,20 @@
+{
+  "name": "cse134b-hw4",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rorahin/cse134B-hw4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rorahin/cse134B-hw4/issues"
+  },
+  "homepage": "https://github.com/rorahin/cse134B-hw4#readme"
+}
