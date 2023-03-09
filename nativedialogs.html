@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dialogs</title>
     <script defer src='./Script/index.js' type='module'></script>
-    <script src="./Script/customdialog.js" type="module"></script>
+    <!-- <script src="./Script/customdialog.js" type="module"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.1/purify.min.js" type="text/javascript"></script>
     <style>
         div {
@@ -24,6 +24,17 @@
 </head>
 
 <body id='top'>
+    <template>
+        <dialog id='dialog'>
+            <form method='dialog'>
+                <p>Hello, i am a dialog</p>
+                <button>dialog button</button>
+            </form>
+        </dialog>
+        <button onclick='dialog.showModal()'>open dialog</button>
+    </template>
+
+
     <h1>Native Dialogs</h1>
     <button id='Alert'>Alert</button>
     <button id='Confirm'>Confirm</button>
@@ -87,7 +98,7 @@
                 let output = document.getElementById('dialogOutput');
                 output.style.visibility = 'hidden';
                 // your code starts from here
-                let dialog = myConfirm("Enter your last name:")
+                let dialog = myPrompt("Enter your last name:", "last name")
                 dialog.addEventListener('close', function () {
                     let output = document.getElementById('dialogOutput')
                     if (this.returnValue !== null && this.returnValue !== '') {
@@ -97,12 +108,8 @@
                         output.innerHTML = `User didn't enter anything!`;
                     }
                     output.style.visibility = 'visible';
-
                 })
-
             })
-
-
         })
     </script>
 

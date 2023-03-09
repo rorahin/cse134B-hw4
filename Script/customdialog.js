@@ -1,18 +1,13 @@
 export function myAlert (s) {
-
     let alertDialog = document.createElement('dialog');
-
     alertDialog.innerHTML = `<p>${s}</p>
                         <div style="text-align: center">
-                            <button id="okBtn">Ok</button>
+                            <button id="okBtn">Close</button>
                         </div>`;
-
     document.body.appendChild(alertDialog);
-
     alertDialog.querySelector('#okBtn').onclick = function () {
         alertDialog.close();
     }
-
     alertDialog.showModal();
 }
 
