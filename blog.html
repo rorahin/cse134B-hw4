@@ -41,17 +41,15 @@
                     <input type='button' value='Cancel' id='cancelPostBtn'>
                     <input type='button' value='Save' id='savePostBtn'>
                 </div>
-
-
             </form>
         </div>
     </dialog>
 
     <!-- ass file  src=./blog.js -->
-    <script type='module' src='./Script/blog.js'>
+    <script type='module'>
         import * as posts from "./Script/blog.js";
 
-        window.editPost = posts.edidPost;
+        window.editPost = posts.editPost;
         window.deletePost = posts.deletePost;
 
         window.addEventListener("DOMContentLoaded", function () {
